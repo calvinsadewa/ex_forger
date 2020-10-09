@@ -102,7 +102,7 @@ defmodule ExForger.DefaultSmith do
     do: 1..10 |> Enum.map(fn _ -> Enum.random(?a..?z) end) |> List.to_string()
 
   defp random_value(:binary), do: <<Enum.random(0..255)>>
-  defp random_value(:decimal), do: :random.uniform() |> Decimal.new()
+  defp random_value(:decimal), do: :random.uniform() |> Decimal.from_float()
   defp random_value(:date), do: Date.utc_today()
   defp random_value(:time), do: Time.utc_now()
   defp random_value(:time_usec), do: Time.utc_now()
